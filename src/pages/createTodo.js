@@ -158,9 +158,16 @@ const CreateTodo = () => {
                     <div>
                         <button
                             type="submit"
-                            className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-black/80 focus:outline-none focus-visible:outline-black"
+                            className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-black/80 focus:outline-none focus-visible:outline-black mb-2"
                         >
                             Create Todo
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => navigate("/dashboard")}
+                            className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-black/80 focus:outline-none focus-visible:outline-black"
+                        >
+                            Back
                         </button>
                     </div>
                 </form>

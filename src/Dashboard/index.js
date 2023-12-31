@@ -129,17 +129,38 @@ function Dashboard() {
                     )}
                 </div>
             </header>
+            {tododetails.length < 1 ?
 
-            <div className="card-grid my-[2em] mb-[8em] mx-0 grid gap-12 grid-cols-autofill place-items-center place-content-center">
-                {tododetails && tododetails.map((todo) => {
-                    return (
-                        <div key={todo._id}>
-                            <TodoCard key={todo._id} {...todo} />
-                        </div>
-                    );
-                })}
-            </div>
+                <div>
+                    <p className="mt-6 text-sm font-semibold text-black">No Todo Found !</p>
+                    <h1 className="mt-3 text-2xl font-semibold text-gray-800 md:text-3xl">
+                        We can&apos;t find any todos
+                    </h1>
+                    <p className="mt-4 text-gray-500">
+                        Please, create your first Todo.
+                    </p>
+                    <div className="mt-6 flex items-center space-x-3">
+                        <button
+                            onClick={() => navigate("/createtodo")}
+                            type="button"
+                            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                        >
+                            Create Todo
+                        </button>
+                    </div>
 
+                </div>
+                :
+                <div className="card-grid my-[2em] mb-[8em] mx-0 grid gap-12 grid-cols-autofill place-items-center place-content-center">
+                    {tododetails && tododetails.map((todo) => {
+                        return (
+                            <div key={todo._id}>
+                                <TodoCard key={todo._id} {...todo} />
+                            </div>
+                        );
+                    })}
+                </div>
+            }
             <footer className='-ml-2 bottom-0 fixed w-full max-w-7xl bg-white'>
                 <hr />
                 <div className=" flex justify-center ">
